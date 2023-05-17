@@ -1,0 +1,83 @@
+/*/////////////////////////////////////////////////////////////////////////
+                          Workshop - #2 (P1)
+Full Name  :Cheuk Hei Wong
+Student ID#:135442226
+Email      :chwong29@myseneca.ca
+Section    :NDD
+
+Authenticity Declaration:
+
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+/////////////////////////////////////////////////////////////////////////*/
+
+#define _CRT_SECURE_NO_WARNINGS
+#pragma warnings(disable:6031)
+#include <stdio.h>
+#include <limits.h>
+#include <math.h>
+
+int main(void){
+    const double TAX = 0.13;
+    const char patSize='S';
+    
+    double priceSmall;
+    int priceSmallCents;
+    double priceMedium;
+    int priceMediumCents;
+    double priceLarge;
+    int priceLargeCents;
+    
+    int numPat;
+    
+    double subTotal;
+    int subTotalCents;
+    double Taxes;
+    int TaxesCents;
+    double Total;
+    int TotalCents;
+
+    
+    //Ask for prices
+    printf("Set Shirt Prices\n");
+    printf("================\n");
+    printf("Enter the price for a SMALL shirt: $");
+    scanf("%lf",&priceSmall);
+    priceSmallCents= (int)round(priceSmall*100.0);
+    printf("Enter the price for a MEDIUM shirt: $");
+    scanf("%lf",&priceMedium);
+    priceMediumCents= (int)round(priceMedium*100.0);
+    printf("Enter the price for a LARGE shirt: $");
+    scanf("%lf",&priceLarge);
+    priceLargeCents= (int)round(priceLarge*100.0);
+    printf("\n");
+
+    //print 3 prices
+    printf("Shirt Store Price List\n");
+    printf("======================\n");
+    printf("SMALL  : $%.2f\n",priceSmall);
+    printf("MEDIUM : $%.2f\n",priceMedium);
+    printf("LARGE  : $%.2f\n",priceLarge);
+    printf("\n");
+    // print size
+    printf("Patty's shirt size is '%c'\n",patSize);
+    printf("Number of shirts Patty is buying: ");
+    scanf("%d",&numPat);
+    printf("\n");
+    
+    //calculate subtotal, taxes, total
+    printf("Patty's shopping cart...\n");
+    printf("Contains : %d shirts\n",numPat);
+    subTotalCents=priceSmallCents*numPat;
+    subTotal=subTotalCents/100.0;
+    printf("Sub-total: $%8.4lf\n",subTotal);
+    TaxesCents=(int)round(subTotalCents*TAX);
+    Taxes= TaxesCents/100.0;
+    printf("Taxes    : $%8.4lf\n",Taxes);
+    TotalCents=subTotalCents+TaxesCents;
+    Total= TotalCents/100.0;
+    printf("Total    : $%8.4lf\n",Total);
+    
+    return 0;
+}
